@@ -1,10 +1,3 @@
-/**
-* Created by GoLand.
-* User: link1st
-* Date: 2019-07-25
-* Time: 14:18
- */
-
 package redislib
 
 import (
@@ -29,7 +22,6 @@ func ExampleNewClient() {
 
 	pong, err := client.Ping().Result()
 	fmt.Println("初始化redis:", pong, err)
-	// Output: PONG <nil>
 }
 
 func GetClient() (c *redis.Client) {

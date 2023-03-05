@@ -1,10 +1,3 @@
-/**
-* Created by GoLand.
-* User: link1st
-* Date: 2019-07-25
-* Time: 12:11
- */
-
 package user
 
 import (
@@ -56,36 +49,6 @@ func Online(c *gin.Context) {
 
 	controllers.Response(c, common.OK, "", data)
 }
-
-// 给用户发送消息
-//func SendMessage(c *gin.Context) {
-//	// 获取参数
-//	appIdStr := c.PostForm("appId")
-//	userId := c.PostForm("userId")
-//	msgId := c.PostForm("msgId")
-//	message := c.PostForm("message")
-//	appIdUint64, _ := strconv.ParseInt(appIdStr, 10, 32)
-//	appId := uint32(appIdUint64)
-//
-//	fmt.Println("http_request 给用户发送消息", appIdStr, userId, msgId, message)
-//
-//	data := make(map[string]interface{})
-//
-//	if cache.SeqDuplicates(msgId) {
-//		fmt.Println("给用户发送消息 重复提交:", msgId)
-//		controllers.Response(c, common.OK, " ", data)
-//		return
-//	}
-//
-//	sendResults, err := websocket.SendUserMessage(appId, userId, msgId, message)
-//	if err != nil {
-//		data["sendResultsErr"] = err.Error()
-//	}
-//
-//	data["sendResults"] = sendResults
-//
-//	controllers.Response(c, common.OK, "", data)
-//}
 
 // 给全员发送消息
 func SendMessageAll(c *gin.Context) {

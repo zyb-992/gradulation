@@ -1,10 +1,3 @@
-/**
- * Created by GoLand.
- * User: link1st
- * Date: 2019-07-26
- * Time: 09:18
- */
-
 package cache
 
 import (

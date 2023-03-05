@@ -1,10 +1,3 @@
-/**
-* Created by GoLand.
-* User: link1st
-* Date: 2019-07-30
-* Time: 12:27
- */
-
 package websocket
 
 import (
@@ -77,47 +70,6 @@ func checkUserOnline(appId uint32, userId string) (online bool, err error) {
 
 	return
 }
-
-// 给用户发送消息
-//func SendUserMessage(appId uint32, userId string, msgId, message string) (sendResults bool, err error) {
-//
-//	data := models.GetTextMsgData(userId, msgId, message)
-//
-//	client := GetUserClient(appId, userId)
-//
-//	if client != nil {
-//		// 在本机发送
-//		sendResults, err = SendUserMessageLocal(appId, userId, data)
-//		if err != nil {
-//			fmt.Println("给用户发送消息", appId, userId, err)
-//		}
-//
-//		return
-//	}
-//
-//	key := GetUserKey(appId, userId)
-//	info, err := cache.GetUserOnlineInfo(key)
-//	if err != nil {
-//		fmt.Println("给用户发送消息失败", key, err)
-//
-//		return false, nil
-//	}
-//	if !info.IsOnline() {
-//		fmt.Println("用户不在线", key)
-//		return false, nil
-//	}
-//	server := models.NewServer(info.AccIp, info.AccPort)
-//	msg, err := grpcclient.SendMsg(server, msgId, appId, userId, models.MessageCmdMsg, models.MessageCmdMsg, message)
-//	if err != nil {
-//		fmt.Println("给用户发送消息失败", key, err)
-//
-//		return false, err
-//	}
-//	fmt.Println("给用户发送消息成功-rpc", msg)
-//	sendResults = true
-//
-//	return
-//}
 
 // 给本机用户发送消息
 func SendUserMessageLocal(appId uint32, userId string, data string) (sendResults bool, err error) {

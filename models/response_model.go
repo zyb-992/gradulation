@@ -1,10 +1,3 @@
-/**
-* Created by GoLand.
-* User: link1st
-* Date: 2019-08-01
-* Time: 10:46
- */
-
 package models
 
 import "encoding/json"

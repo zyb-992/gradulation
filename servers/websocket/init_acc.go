@@ -89,7 +89,6 @@ func wsPage(w http.ResponseWriter, req *http.Request) {
 	// Websocket的conn
 	conn, err := (&websocket.Upgrader{CheckOrigin: func(r *http.Request) bool {
 		fmt.Println("升级协议", "ua:", r.Header["User-Agent"], "referer:", r.Header["Referer"])
-
 		return true
 	}}).Upgrade(w, req, nil)
 	if err != nil {

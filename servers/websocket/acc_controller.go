@@ -1,10 +1,3 @@
-/**
- * Created by GoLand.
- * User: link1st
- * Date: 2019-07-27
- * Time: 13:12
- */
-
 package websocket
 
 import (
@@ -45,7 +38,6 @@ func LoginController(client *Client, seq string, message []byte) (code uint32, m
 	fmt.Println("webSocket_request 用户登录", seq, "ServiceToken", request.ServiceToken)
 
 	// TODO::进行用户权限认证，一般是客户端传入TOKEN，然后检验TOKEN是否合法，通过TOKEN解析出来用户ID
-	// 本项目只是演示，所以直接过去客户端传入的用户ID
 	if request.UserId == "" || len(request.UserId) >= 20 {
 		code = common.UnauthorizedUserId
 		fmt.Println("用户登录 非法的用户", seq, request.UserId)

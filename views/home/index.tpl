@@ -367,7 +367,6 @@
                 name +
                 '</div>';
             return html
-
         }
 
         function addChatWith(msg) {
@@ -388,12 +387,13 @@
 
 
         // 连接webSocket
+        // 使用gin模板传输文件
         ws = new WebSocket("ws://{{ .webSocketUrl }}/acc");
 
         ws.onopen = function(evt) {
             console.log("Connection open ...");
 
-           person = sessionStorage.getItem('uname')
+           person = sessionStorage.getItem('unam·')
             console.log("用户准备登陆:" + person);
             ws.send('{"seq":"' + sendId() + '","cmd":"login","data":{"userId":"' + person + '","appId":'+ appId +'}}');
 
@@ -435,7 +435,6 @@
         }
 
         // 点击按钮事件
-        // $("button").click(function() {
         $("input[name='button']").click(function() {
             sendMsg();
         });
@@ -498,8 +497,6 @@
                 }
             });
         }
-
-
         </script>
     </div>
 </body>

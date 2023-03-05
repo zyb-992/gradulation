@@ -1,10 +1,3 @@
-/**
-* Created by GoLand.
-* User: link1st
-* Date: 2019-07-25
-* Time: 09:59
- */
-
 package main
 
 import (
@@ -31,19 +24,8 @@ func main() {
 	//go open()
 
 	// config的httpPort
-	http.ListenAndServe(":8080", routers.Router)
-
+	err := http.ListenAndServe(":8080", routers.Router)
+	if err != nil {
+		panic("Http Listen Error")
+	}
 }
-
-//func open() {
-//
-//	time.Sleep(1000 * time.Millisecond)
-//
-//	httpUrl := viper.GetString("app.httpUrl")
-//	httpUrl = "http://" + httpUrl + "/home/index"
-//
-//	fmt.Println("访问页面体验:", httpUrl)
-//
-//	cmd := exec.Command("open", httpUrl)
-//	cmd.Output()
-//}
