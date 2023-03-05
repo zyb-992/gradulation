@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+  <style>
+    body{
+      /* 设置body高度为100%窗口高度 */
+      height:100vh;
+      /* 弹性盒子模型 */
+      display: flex;
+      /* 限免两个属性是让body里的子类居中 */
+      justify-content: center;
+      align-items: center;
+      background-color: #1d1928;
+    }
+
+    h2{
+      color: #F5F5F5;
+    }
+
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 350px;
+      height: 350px;
+      border-radius: 20px;
+      background-color: #4471a3;
+      /* 盒子阴影 */
+      box-shadow: 15px 15px 10px rgba(33,45,58,0.3);
+      overflow: hidden;
+      position:relative;
+    }
+
+    .container form{
+      width: 350px;
+      height: 200px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .container form .tbx{
+      width: 250px;
+      height: 40px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #fff;
+      background: none;
+      color:#ffffff;
+      font-size: 15px;
+    }
+
+    .container form .tbx::placeholder{
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .container form .btn{
+      width: 80px;
+      height: 40px;
+      /*background: #ffffff;*/
+      /*color: black;*/
+      /*border: none;*/
+      /*border-radius: 15px;*/
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2> 小小聊天室 </h2>
+    <form>
+      <input required type="text" class="tbx" name="user" placeholder="您希望的名称" id="txt"/>
+      <!-- <input type="button" name="btn" value="Enter" class="btn"/> -->
+      <button type="button" id="btn">Enter</button>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+
+    // 点击按钮模块 
+    const txt = document.querySelector('#txt')
+    const btn = document.querySelector('#btn')
+    btn.addEventListener('click', function(e) {
+        e.preventDefault() 
+        // 记录用户名到本地存储
+        // 跳转到index.html
+        sessionStorage.setItem('uname', txt.value)
+        // location.href = '127.0.0.1:8080/home/index'
+        location.href = 'http://localhost:8080/home/index'
+        
+    })
+
+    // function TurnToPage() {
+    //     console.log(1)
+    //     // window.location.href= 'http://localhost:8080/home/index'
+    // }
+
+    // $("input[name='btn']").click(function() {
+    //   doSubmitUserName();
+    // });
+
+    // function doSubmitUserName(){
+    //   let name = $("input[name='user']").value
+    //   console.log("user's name : " + name)
+    //   if (name !== "") {
+    //     $.ajax({
+    //         aync:false,
+    //         cache:false,
+    //         type: "POST",
+    //         url:'http://127.0.0.1:8080/home/index',
+    //         data: {
+    //             username:name,
+    //         },
+    //         dataType:Text,
+    //         // contentType: "application/x-www-form-urlencoded",
+    //         // 请求成功回调函数
+    //         success: function (res) {
+    //             // res得到数据
+    //             console.log("success")
+    //             window.location.href= 'http://localhost:8080/home/index'
+    //         },
+    //     })
+    //   }
+    // }
+  </script>
+</body>
+</html>
