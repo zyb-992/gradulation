@@ -5,11 +5,8 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.7.2
 	github.com/go-redis/redis v0.0.0-20190719092155-6bc7daa5b1e8
-	github.com/golang/protobuf v1.5.2
 	github.com/gorilla/websocket v1.4.2
 	github.com/spf13/viper v1.4.1-0.20190728125013-1b33e8258e07
-	google.golang.org/grpc v1.47.0
-	google.golang.org/protobuf v1.28.0
 )
 
 require (
@@ -21,7 +18,6 @@ require (
 	github.com/hashicorp/hcl v1.0.1-0.20190611123218-cf7d376da96d // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
-	github.com/liu-cn/json-filter v0.0.0-20230114170301-17f44b682e6c // indirect
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/mattn/go-isatty v0.0.13 // indirect
 	github.com/mitchellh/mapstructure v1.1.2 // indirect
@@ -38,6 +34,7 @@ require (
 	golang.org/x/net v0.0.0-20220607020251-c690dde0001d // indirect
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	golang.org/x/text v0.3.7 // indirect
-	google.golang.org/genproto v0.0.0-20220607223854-30acc4cbd2aa // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
+
+require github.com/golang/protobuf v1.3.3 // indirect

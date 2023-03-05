@@ -1,8 +1,8 @@
 [GIN-debug] Loaded HTML Templates (4): 
-	- index.tpl
 	- 
 	- home.html
 	- index.html
+	- index.tpl
 
 [GIN-debug] GET    /user/list                --> gowebsocket/controllers/user.List (3 handlers)
 [GIN-debug] GET    /user/online              --> gowebsocket/controllers/user.Online (3 handlers)
