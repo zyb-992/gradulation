@@ -86,7 +86,6 @@ func StartWebSocket() {
 func wsPage(w http.ResponseWriter, req *http.Request) {
 
 	// 升级协议
-	// Websocket的conn
 	conn, err := (&websocket.Upgrader{CheckOrigin: func(r *http.Request) bool {
 		fmt.Println("升级协议", "ua:", r.Header["User-Agent"], "referer:", r.Header["Referer"])
 		return true
@@ -101,7 +100,6 @@ func wsPage(w http.ResponseWriter, req *http.Request) {
 	currentTime := uint64(time.Now().Unix())
 	client := NewClient(conn.RemoteAddr().String(), conn, currentTime)
 
-	// 这样有浪费 因为不需要的会被回收 重新创建的话会比较耗费时间和资源
 	go client.read()
 	go client.write()
 

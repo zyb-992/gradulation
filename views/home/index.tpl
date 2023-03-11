@@ -297,16 +297,6 @@
         <script type="text/javascript">
         appId = {{ .appId }};
 
-
-        const bdValue =  document.querySelector('#bd-search');
-        const bdBtn = document.querySelector('#bd-btn');
-        bdBtn.addEventListener('click', function() {
-            let v = bdValue.value;
-            // tpl文件不能使用反引号
-            let search = "http://baidu.com/s?wd=" + v;
-            window.open(search);
-        });
-
         function currentTime() {
             let timeStamp = (new Date()).valueOf();
 
@@ -367,6 +357,7 @@
                 name +
                 '</div>';
             return html
+
         }
 
         function addChatWith(msg) {
@@ -387,13 +378,12 @@
 
 
         // 连接webSocket
-        // 使用gin模板传输文件
         ws = new WebSocket("ws://{{ .webSocketUrl }}/acc");
 
         ws.onopen = function(evt) {
             console.log("Connection open ...");
 
-           person = sessionStorage.getItem('unam·')
+           person = sessionStorage.getItem('uname')
             console.log("用户准备登陆:" + person);
             ws.send('{"seq":"' + sendId() + '","cmd":"login","data":{"userId":"' + person + '","appId":'+ appId +'}}');
 
@@ -435,6 +425,7 @@
         }
 
         // 点击按钮事件
+        // $("button").click(function() {
         $("input[name='button']").click(function() {
             sendMsg();
         });
@@ -496,6 +487,15 @@
                     return false
                 }
             });
+        }
+
+
+        function getName(){
+            let names = ["Jame", "Mary", "Jack", "Bili", "Cili","Yum","Dummy","KiKi","Pipi","Puppy","Omit","Queen","Honey","Pili"]
+
+            var name = names[Math.floor(Math.random()*names.length)];
+
+            return name
         }
         </script>
     </div>
