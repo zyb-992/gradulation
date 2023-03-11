@@ -126,6 +126,8 @@
     .mobile-page .user-img {
         width: 45px;
         height: 45px;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
     i.triangle-admin,
@@ -330,7 +332,6 @@
         function msg(name, msg) {
             let html = '<div class="admin-group">' +
                 '<div class="admin-img" >' + name + '</div>' +
-                // '<img class="admin-img" src="http://localhost/public/img/aa.jpg" />'+
                 '<div class="admin-msg">' +
                 '<i class="triangle-admin"></i>' +
                 '<span class="admin-reply">' + msg + '</span>' +
@@ -346,7 +347,6 @@
                 '<i class="triangle-user"></i>' +
                 '</div>' +
                 '<div class="user-img" >' + name + '</div>' +
-                // '<img class="user-img" src="http://localhost/public/img/cc.jpg" />'+
                 '</div>';
             return html
         }
@@ -490,13 +490,6 @@
         }
 
 
-        function getName(){
-            let names = ["Jame", "Mary", "Jack", "Bili", "Cili","Yum","Dummy","KiKi","Pipi","Puppy","Omit","Queen","Honey","Pili"]
-
-            var name = names[Math.floor(Math.random()*names.length)];
-
-            return name
-        }
         </script>
     </div>
 </body>

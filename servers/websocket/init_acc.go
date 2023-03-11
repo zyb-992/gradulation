@@ -12,7 +12,6 @@ import (
 	"net/http"
 	"time"
 
-	"gowebsocket/helper"
 	"gowebsocket/models"
 
 	"github.com/gorilla/websocket"
@@ -69,7 +68,8 @@ func GetDefaultAppId() uint32 {
 // 启动程序
 func StartWebSocket() {
 
-	serverIp = helper.GetServerIp()
+	// demo测试 127.0.0.1:8080
+	serverIp = "127.0.0.1:8080"
 
 	webSocketPort := viper.GetString("app.webSocketPort")
 
@@ -79,7 +79,10 @@ func StartWebSocket() {
 	go clientManager.start()
 	fmt.Println("WebSocket 启动程序成功", serverIp, serverPort)
 
-	http.ListenAndServe(":"+webSocketPort, nil)
+	err := http.ListenAndServe(":"+webSocketPort, nil)
+	if err != nil {
+		panic("Start Websocket Error ")
+	}
 
 }
 

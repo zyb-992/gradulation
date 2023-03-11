@@ -10,7 +10,7 @@ const (
 	MessageCmdExit  = "exit"
 )
 
-// 消息的定义
+// Message 消息的定义
 type Message struct {
 	Target string `json:"target"` // 目标
 	Type   string `json:"type"`   // 消息类型 text/img/
@@ -31,31 +31,13 @@ func NewTestMsg(from string, Msg string) (message *Message) {
 
 func getTextMsgData(cmd, uuId, msgId, message string) string {
 	textMsg := NewTestMsg(uuId, message)
-	head := NewResponseHead(msgId, cmd, common.OK, "Ok", textMsg)
+	head := NewResponseHead(msgId, cmd, common.OK, "OK", textMsg)
 
 	return head.String()
 }
 
-// 文本消息
+// GetMsgData 文本消息
 func GetMsgData(uuId, msgId, cmd, message string) string {
 
 	return getTextMsgData(cmd, uuId, msgId, message)
-}
-
-// 文本消息
-func GetTextMsgData(uuId, msgId, message string) string {
-
-	return getTextMsgData("msg", uuId, msgId, message)
-}
-
-// 用户进入消息
-func GetTextMsgDataEnter(uuId, msgId, message string) string {
-
-	return getTextMsgData("enter", uuId, msgId, message)
-}
-
-// 用户退出消息
-func GetTextMsgDataExit(uuId, msgId, message string) string {
-
-	return getTextMsgData("exit", uuId, msgId, message)
 }

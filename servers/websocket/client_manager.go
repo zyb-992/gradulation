@@ -2,7 +2,6 @@ package websocket
 
 import (
 	"fmt"
-	"gowebsocket/helper"
 	"gowebsocket/lib/cache"
 	"gowebsocket/models"
 	"strconv"
@@ -32,6 +31,14 @@ func NewClientManager() (clientManager *ClientManager) {
 		Unregister: make(chan *Client, 1000),
 		Broadcast:  make(chan []byte, 1000),
 	}
+
+	return
+}
+
+func GetOrderIdTime() (orderId string) {
+
+	currentTime := time.Now().Nanosecond()
+	orderId = fmt.Sprintf("%d", currentTime)
 
 	return
 }
@@ -249,7 +256,7 @@ func (manager *ClientManager) EventLogin(login *login) {
 
 	fmt.Println("EventLogin 用户登录", client.Addr, login.AppId, login.UserId)
 
-	orderId := helper.GetOrderIdTime()
+	orderId := GetOrderIdTime()
 	SendUserMessageAll(login.AppId, login.UserId, orderId, models.MessageCmdEnter, "哈喽~")
 }
 
@@ -278,7 +285,7 @@ func (manager *ClientManager) EventUnregister(client *Client) {
 	fmt.Println("EventUnregister 用户断开连接", client.Addr, client.AppId, client.UserId)
 
 	if client.UserId != "" {
-		orderId := helper.GetOrderIdTime()
+		orderId := GetOrderIdTime()
 		SendUserMessageAll(client.AppId, client.UserId, orderId, models.MessageCmdExit, "用户已经离开~")
 	}
 }
